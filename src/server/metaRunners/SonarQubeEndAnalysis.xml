@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meta-runner name="SonarQube End Analysis">
+  <description>SonarQube End Analysis</description>
+  <settings>
+    <parameters>
+      <param name="SonarQube Server" value="%Sonar.Server%" spec="text description='SonarQube Server URL' display='normal' label='SonarQube Server URL:' validationMode='not_empty'" />
+      <param name="SonarQube User" value="%Sonar.User%" spec="text description='SonarQube User' display='normal' label='SonarQube User:' validationMode='not_empty'" />
+      <param name="SonarQube Password" value="%Sonar.Password%" spec="password description='SonarQube Password' display='normal' label='SonarQube Password:' validationMode='not_empty'" />         
+      <param name="additionalCommandLineArgs" value="" />
+      <param name="solutionPath" value="%teamcity.build.checkoutDir%" />
+    </parameters>
+    <build-runners>
+      <runner name="SonarQube End Analysis" type="simpleRunner">
+        <parameters>
+          <param name="command.executable" value="%teamcity.agent.tools.dir%\scanner-msbuild\bin\SonarQube.Scanner.MSBuild.exe" />
+          <param name="command.parameters" value="end /d:sonar.login=&quot;%Sonar.User%&quot; /d:sonar.password=&quot;%Sonar.Password%&quot; %additionalCommandLineArgs%" />
+          <param name="teamcity.build.workingDir" value="%solutionPath%" />
+          <param name="teamcity.step.mode" value="default" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <requirements />
+  </settings>
+</meta-runner>
