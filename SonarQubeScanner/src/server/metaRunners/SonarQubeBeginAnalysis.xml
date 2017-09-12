@@ -8,7 +8,7 @@
       <param name="sonar.password" value="%sonar.password%" spec="password description='SonarQube Password' display='hidden' label='SonarQube Password:' validationMode='not_empty'" />
       <param name="sonar.project.name" value="%env.TEAMCITY_PROJECT_NAME%" spec="text description='SonarQube Project Name' display='normal' label='SonarQube Project Name:' validationMode='not_empty'" />
       <param name="sonar.project.key" value="%teamcity.project.id%" spec="text description='SonarQube Project Key' display='normal' label='SonarQube Project Key:' validationMode='not_empty'" />
-      <param name="sonar.project.branch" value="%teamcity.build.branch%" spec="text description='Use this property to create a independent project in SonarQube for specific branch' display='normal' label='Sonar Branch:' validationMode='not_empty'" />
+      <param name="sonar.project.branch" value="%teamcity.build.branch%" spec="text description='Use this property to create a independent project in SonarQube for specific branch' display='normal' label='Sonar Branch:'" />
       <param name="sonar.solution.path" value="%teamcity.build.checkoutDir%" spec="text description='Solution Path (Working Directory)' display='normal' label='Solution Path:'"/>
       <param name="sonar.additional.args" value="" spec="text description='SonarQube Additional CommandLine Arguments (consider ONE space between args)' display='normal' label='Additional CommandLine Args:'"/>
     </parameters>
