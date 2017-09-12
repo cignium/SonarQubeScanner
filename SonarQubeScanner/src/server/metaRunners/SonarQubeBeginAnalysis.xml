@@ -3,20 +3,20 @@
   <description>SonarQube Begin Analysis</description>
   <settings>
     <parameters>
-      <param name="SonarQube Server" value="%Sonar.Server%" spec="text description='SonarQube Server URL' display='normal' label='SonarQube Server URL:' validationMode='not_empty'" />
-      <param name="SonarQube User" value="%Sonar.User%" spec="text description='SonarQube User' display='normal' label='SonarQube User:' validationMode='not_empty'" />
-      <param name="SonarQube Password" value="%Sonar.Password%" spec="password description='SonarQube Password' display='normal' label='SonarQube Password:' validationMode='not_empty'" />
-      <param name="ProjectName" value="%Sonar.ProjectName%" spec="text description='SonarQube Project Name' display='normal' label='SonarQube Project Name:' validationMode='not_empty'" />
-      <param name="ProjectKey" value="%Sonar.ProjectKey%" spec="text description='SonarQube Project Key' display='normal' label='SonarQube Project Key:' validationMode='not_empty'" />      
-      <param name="additionalCommandLineArgs" value="" />
-      <param name="solutionPath" value="%teamcity.build.checkoutDir%" />
+      <param name="sonar.user" value="%sonar.user%" spec="text description='SonarQube User' display='hidden' label='SonarQube User:' validationMode='not_empty'" />
+      <param name="sonar.server" value="%sonar.server%" spec="text description='SonarQube Server URL' display='hidden' label='SonarQube Server URL:' validationMode='not_empty'" />
+      <param name="sonar.password" value="%sonar.password%" spec="password description='SonarQube Password' display='hidden' label='SonarQube Password:' validationMode='not_empty'" />
+      <param name="sonar.project.name" value="%env.TEAMCITY_PROJECT_NAME%" spec="text description='SonarQube Project Name' display='normal' label='SonarQube Project Name:' validationMode='not_empty'" />
+      <param name="sonar.project.key" value="%teamcity.project.id%" spec="text description='SonarQube Project Key' display='normal' label='SonarQube Project Key:' validationMode='not_empty'" />      
+      <param name="sonar.additional.args" value="" spec="text description='SonarQube Additional CommandLine Arguments (consider ONE space between args)' display='normal' label='Additional CommandLine Args:'"/>
+      <param name="sonar.solution.path" value="%teamcity.build.checkoutDir%" spec="text description='Solution Path (Working Directory)' display='normal' label='Solution Path:'"/>
     </parameters>
     <build-runners>
       <runner name="SonarQube Begin Analysis" type="simpleRunner">
         <parameters>
           <param name="command.executable" value="%teamcity.agent.tools.dir%\scanner-msbuild\bin\SonarQube.Scanner.MSBuild.exe" />
-          <param name="command.parameters" value="begin /k:&quot;%Sonar.ProjectKey%&quot; /n:&quot;%Sonar.ProjectName%&quot; /v:&quot;%build.number%&quot; /d:sonar.branch=%teamcity.build.branch% /d:sonar.host.url=&quot;%Sonar.Server%&quot; /d:sonar.login=&quot;%Sonar.User%&quot; /d:sonar.password=&quot;%Sonar.Password%&quot; %additionalCommandLineArgs%" />
-          <param name="teamcity.build.workingDir" value="%solutionPath%" />
+          <param name="command.parameters" value="begin /k:&quot;%sonar.project.key%&quot; /n:&quot;%sonar.project.name%&quot; /v:&quot;%build.number%&quot; /d:sonar.branch=%teamcity.build.branch% /d:sonar.host.url=&quot;%sonar.server%&quot; /d:sonar.login=&quot;%sonar.user%&quot; /d:sonar.password=&quot;%sonar.password%&quot; %sonar.additional.args%" />
+          <param name="teamcity.build.workingDir" value="%sonar.solution.path%" />
           <param name="teamcity.step.mode" value="default" />
         </parameters>
       </runner>
