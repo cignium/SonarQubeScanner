@@ -5,9 +5,9 @@
     <parameters>
       <param name="sonar.user" value="%sonar.user%" spec="text description='SonarQube User' display='hidden' label='SonarQube User:' validationMode='not_empty'" />
       <param name="sonar.server" value="%sonar.server%" spec="text description='SonarQube Server URL' display='hidden' label='SonarQube Server URL:' validationMode='not_empty'" />
-      <param name="sonar.password" value="%sonar.password%" spec="password description='SonarQube Password' display='hidden' label='SonarQube Password:' validationMode='not_empty'" />
-      <param name="sonar.additional.args" value="" spec="text description='SonarQube Additional CommandLine Arguments (consider ONE space between args)' display='normal' label='Additional CommandLine Args:'"/>
+      <param name="sonar.password" value="%sonar.password%" spec="password description='SonarQube Password' display='hidden' label='SonarQube Password:' validationMode='not_empty'" />      
       <param name="sonar.solution.path" value="%teamcity.build.checkoutDir%" spec="text description='Solution Path (Working Directory)' display='normal' label='Solution Path:'"/>
+      <param name="sonar.additional.args" value="" spec="text description='SonarQube Additional CommandLine Arguments (consider ONE space between args)' display='normal' label='Additional CommandLine Args:'"/>
     </parameters>
     <build-runners>
       <runner name="SonarQube End Analysis" type="simpleRunner">
