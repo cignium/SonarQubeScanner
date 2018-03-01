@@ -19,4 +19,4 @@ This is a plugin for Teamcity which brings SonarQube Scanner for MSBuild to Team
 4. From here on you can follow the official documentation: https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+MSBuild
 5. Enjoy!
 
-> Note: At this point, we are including the latest version of SonarQube Scanner for MSBuild (3.0.2.656) https://github.com/SonarSource/sonar-scanner-msbuild/releases Feel free to do a pull request if a new version is released.
+> Note: At this point, we are including the latest version of SonarQube Scanner for MSBuild (4.0.2.892) https://github.com/SonarSource/sonar-scanner-msbuild/releases Feel free to do a pull request if a new version is released.
