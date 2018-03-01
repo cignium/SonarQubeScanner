@@ -16,7 +16,7 @@
       <runner name="SonarQube Begin Analysis" type="simpleRunner">
         <parameters>
           <param name="command.executable" value="%teamcity.agent.tools.dir%\scanner-msbuild\bin\SonarQube.Scanner.MSBuild.exe" />
-          <param name="command.parameters" value="begin /k:&quot;%sonar.project.key%&quot; /n:&quot;%sonar.project.name%&quot; /v:&quot;%build.number%&quot; /d:sonar.branch=&quot;%sonar.project.branch%&quot; /d:sonar.host.url=&quot;%sonar.server%&quot; /d:sonar.login=&quot;%sonar.user%&quot; /d:sonar.password=&quot;%sonar.password%&quot; %sonar.additional.args%" />
+          <param name="command.parameters" value="begin /k:&quot;%sonar.project.key%&quot; /n:&quot;%sonar.project.name%&quot; /v:&quot;%build.number%&quot; /d:sonar.branch.name=&quot;%sonar.project.branch%&quot; /d:sonar.host.url=&quot;%sonar.server%&quot; /d:sonar.login=&quot;%sonar.user%&quot; /d:sonar.password=&quot;%sonar.password%&quot; %sonar.additional.args%" />
           <param name="teamcity.build.workingDir" value="%sonar.solution.path%" />
           <param name="teamcity.step.mode" value="default" />
         </parameters>
